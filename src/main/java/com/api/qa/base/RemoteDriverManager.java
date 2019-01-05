@@ -14,7 +14,6 @@ public class RemoteDriverManager {
 	WebDriver webdriver;
 	Class<ATT> obj = ATT.class;
 
-	@
 	public void setWebDriver(String BrowserType) {
 
 		Annotation annotation = obj.getAnnotation(ATT.class);
