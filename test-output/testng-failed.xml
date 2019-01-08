@@ -5,6 +5,7 @@
     <classes>
       <class name="com.api.qa.test.GoogleSearch">
         <methods>
+          <include name="tearDown"/>
           <include name="test1"/>
         </methods>
       </class> <!-- com.api.qa.test.GoogleSearch -->

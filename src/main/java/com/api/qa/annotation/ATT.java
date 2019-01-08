@@ -8,5 +8,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface ATT {
-	public abstract String browser();
+	public String browser();
+
+	public String driver();
+
 }
