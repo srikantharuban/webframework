@@ -5,11 +5,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import com.api.qa.apienum.BROWSERS;
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface ATT {
-	public String browser();
+	public String URL();
 
-	public String driver();
+	public BROWSERS browser();
 
 }

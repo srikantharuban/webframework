@@ -11,16 +11,16 @@ import com.api.qa.base.BaseClass;
 
 public class TestngListener extends TestListenerAdapter {
 
+	@Override
 	public void onTestStart(ITestResult result) {
-		BaseClass.setDriver();
 		this.getValue(result);
-
 	}
 
 	public void getValue(ITestResult results) {
 		Annotation annotation = results.getInstance().getClass().getAnnotation(ATT.class);
 		ATT ann = (ATT) annotation;
-		BaseClass.webdriver.get(ann.browser());
+		BaseClass.setDriver(ann.browser());
+		BaseClass.webdriver.get(ann.URL());
 	}
 
 	@Override
