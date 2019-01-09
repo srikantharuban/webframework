@@ -6,7 +6,6 @@ public class CapabilitySetter {
 
 	public String getBrowser() {
 		ATT annotation = this.getClass().getAnnotation(ATT.class);
-
 		return annotation.browser();
 	}
 

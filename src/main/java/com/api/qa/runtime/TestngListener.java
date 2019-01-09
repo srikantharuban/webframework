@@ -1,29 +1,26 @@
 package com.api.qa.runtime;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import java.lang.annotation.Annotation;
+
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
 import com.api.qa.annotation.ATT;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.api.qa.base.BaseClass;
 
 public class TestngListener extends TestListenerAdapter {
 
 	public void onTestStart(ITestResult result) {
-		System.out.println(result.getStatus());
+		BaseClass.setDriver();
 		this.getValue(result);
 
 	}
 
 	public void getValue(ITestResult results) {
-		ATT annotation = this.getClass().getAnnotation(ATT.class);
-		System.out.println(annotation);
 
-		WebDriverManager.chromedriver().setup();
-		WebDriver webdriver = new ChromeDriver();
-		webdriver.get(annotation.browser());
+		Annotation annotation = results.getInstance().getClass().getAnnotation(ATT.class);
+		ATT ann = (ATT) annotation;
+		BaseClass.webdriver.get(ann.browser());
 
 	}
 }
