@@ -2,6 +2,7 @@ package com.api.qa.runtime;
 
 import java.lang.annotation.Annotation;
 
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
@@ -17,10 +18,13 @@ public class TestngListener extends TestListenerAdapter {
 	}
 
 	public void getValue(ITestResult results) {
-
 		Annotation annotation = results.getInstance().getClass().getAnnotation(ATT.class);
 		ATT ann = (ATT) annotation;
 		BaseClass.webdriver.get(ann.browser());
+	}
 
+	@Override
+	public void onFinish(ITestContext testContext) {
+		BaseClass.webdriver.quit();
 	}
 }
